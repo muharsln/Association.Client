@@ -1,0 +1,56 @@
+<button class="navbar-toggler" (click)="toggleSidebar()">
+    <i class="bi bi-list"></i>
+</button>
+
+<div class="sidebar" [ngClass]="{'show': isSidebarOpen}">
+    <div class="sidebar-brand">
+        <h4 class="mb-0">Abc Derneği</h4>
+        <small>Yönetim Paneli</small>
+    </div>
+    <nav class="nav flex-column">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="bi bi-house me-2"></i>Dashboard
+        </a>
+        <div class="nav-item-with-submenu" [ngClass]="{'open': isSubmenuOpen === 'donors'}">
+            <a class="nav-link" (click)="toggleSubmenu('donors')">
+                <i class="bi bi-people me-2"></i>Bağışçılar
+            </a>
+            <div class="nav-submenu" [ngClass]="{'show': isSubmenuOpen === 'donors'}">
+                <a class="nav-link" routerLink="/donors/add" routerLinkActive="active">
+                    <i class="bi bi-plus me-2"></i>Bağışçı Ekle
+                </a>
+                <a class="nav-link" routerLink="/donors/list" routerLinkActive="active">
+                    <i class="bi bi-list me-2"></i>Bağışçı Listesi
+                </a>
+            </div>
+        </div>
+        <div class="nav-item-with-submenu" [ngClass]="{'open': isSubmenuOpen === 'sacrifice'}">
+            <a class="nav-link" (click)="toggleSubmenu('sacrifice')">
+                <i class="fa-solid fa-cow me-2"></i>Kurban
+            </a>
+            <div class="nav-submenu" [ngClass]="{'show': isSubmenuOpen === 'sacrifice'}">
+                <a class="nav-link" routerLink="/sacrifice/add" routerLinkActive="active">
+                    <i class="bi bi-plus me-2"></i>Kurban Ekle
+                </a>
+                <a class="nav-link" routerLink="/sacrifice/list" routerLinkActive="active">
+                    <i class="bi bi-list me-2"></i>Kurban Listesi
+                </a>
+                <a class="nav-link" routerLink="/sacrifice/settings" routerLinkActive="active">
+                    <i class="bi bi-gear me-2"></i>Kurban Ayarları
+                </a>
+            </div>
+        </div>
+        <div class="nav-item-with-submenu" [ngClass]="{'open': isSubmenuOpen === 'reports'}">
+            <a class="nav-link" (click)="toggleSubmenu('reports')">
+                <i class="bi bi-bar-chart-line me-2"></i>Raporlar
+            </a>
+            <div class="nav-submenu" [ngClass]="{'show': isSubmenuOpen === 'reports'}">
+                <a class="nav-link" routerLink="/reports/sales" routerLinkActive="active">
+                    <i class="bi bi-graph-up me-2"></i>Bağış Raporları
+                </a>
+                <a class="nav-link"><i class="bi bi-people-fill me-2"></i>Bağışçı Raporları</a>
+                <a class="nav-link"><i class="bi bi-calendar3 me-2"></i>Aylık Raporlar</a>
+            </div>
+        </div>
+    </nav>
+</div>

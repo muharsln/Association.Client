@@ -1,0 +1,31 @@
+<div class="row top-navbar align-items-center py-4">
+    <div class="col-auto">
+        <div class="dropdown">
+            <a class="dropdown-toggle d-flex align-items-center" (click)="toggleDropdown($event)">
+                <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profil Resmi"
+                    class="profile-img me-2">
+                <span class="d-none d-md-inline">Muhammed Arslan</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" [class.show]="isDropdownOpen">
+                <li>
+                    <a class="dropdown-item" routerLink="/">
+                        <i class="bi bi-person me-2"></i>Profil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" routerLink="/">
+                        <i class="bi bi-gear me-2"></i>Ayarlar
+                    </a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <a class="dropdown-item text-danger" (click)="logout()">
+                        <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
